@@ -343,7 +343,7 @@ export default function EditHealthRecord() {
                 name="vitalSigns.height"
                 value={formData.vitalSigns.height}
                 onChange={handleChange}
-                placeholder="e.g. 5'6\""
+                placeholder="e.g. 5'6\"
               />
             </div>
           </div>
