@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import Layout from '../../components/Layout';
-import ProtectedRoute from '../../components/auth/ProtectedRoute';
-import { useAuth } from '../../context/AuthContext';
-import { userService } from '../../services/db';
-import { ROLES } from '../../services/auth';
+import Layout from '../../../components/Layout';
+import ProtectedRoute from '../../../components/auth/ProtectedRoute';
+import { useAuth } from '../../../context/AuthContext';
+import { userService } from '../../../services/db';
+import { ROLES } from '../../../services/auth';
 
 export default function EditProfilePage() {
   const router = useRouter();
