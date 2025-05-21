@@ -63,8 +63,8 @@ export default function Home() {
       <Layout>
         <div className="flex items-center justify-center h-screen">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-700 mx-auto"></div>
-            <p className="mt-4 text-gray-600">Loading application...</p>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-700 dark:border-purple-400 mx-auto"></div>
+            <p className="mt-4 text-gray-600 dark:text-gray-400">Loading application...</p>
           </div>
         </div>
       </Layout>
@@ -76,8 +76,8 @@ export default function Home() {
       <Layout>
         <div className="p-4 max-w-lg mx-auto">
           <header className="mb-6">
-            <h1 className="text-2xl font-bold text-purple-800">Midwifery Dashboard</h1>
-            <p className="text-gray-600">
+            <h1 className="text-2xl font-bold text-purple-800 dark:text-purple-400">Midwifery Dashboard</h1>
+            <p className="text-gray-600 dark:text-gray-400">
               {isOnline ? 'Connected' : 'Working offline'}
             </p>
           </header>
@@ -85,34 +85,34 @@ export default function Home() {
           {/* Only show patient stats to midwives */}
           <div className="grid grid-cols-2 gap-4 mb-6">
             {isMidwifeUser && (
-              <div className="bg-white p-4 rounded-lg shadow">
-                <h2 className="text-sm font-medium text-gray-500">Patients</h2>
-                <p className="text-2xl font-bold text-purple-800">{stats.patients}</p>
+              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                <h2 className="text-sm font-medium text-gray-500 dark:text-gray-400">Patients</h2>
+                <p className="text-2xl font-bold text-purple-800 dark:text-purple-400">{stats.patients}</p>
               </div>
             )}
-            <div className={`bg-white p-4 rounded-lg shadow ${!isMidwifeUser ? "col-span-2" : ""}`}>
-              <h2 className="text-sm font-medium text-gray-500">Today's Appointments</h2>
-              <p className="text-2xl font-bold text-purple-800">{stats.appointmentsToday}</p>
+            <div className={`bg-white dark:bg-gray-800 p-4 rounded-lg shadow ${!isMidwifeUser ? "col-span-2" : ""}`}>
+              <h2 className="text-sm font-medium text-gray-500 dark:text-gray-400">Today's Appointments</h2>
+              <p className="text-2xl font-bold text-purple-800 dark:text-purple-400">{stats.appointmentsToday}</p>
             </div>
           </div>
 
           {/* Quick Actions - Different for midwife vs client */}
-          <div className="bg-white rounded-lg shadow mb-6">
-            <div className="p-4 border-b">
-              <h2 className="text-lg font-medium">Quick Actions</h2>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow mb-6">
+            <div className="p-4 border-b dark:border-gray-700">
+              <h2 className="text-lg font-medium dark:text-white">Quick Actions</h2>
             </div>
             <div className="p-4 grid grid-cols-2 gap-4">
               {isMidwifeUser ? (
                 <>
                   <Link 
                     href="/patients/new" 
-                    className="bg-purple-100 p-3 rounded-lg text-center text-purple-800 font-medium text-sm hover:bg-purple-200 transition-colors"
+                    className="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg text-center text-purple-800 dark:text-purple-300 font-medium text-sm hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors"
                   >
                     New Patient
                   </Link>
                   <Link 
                     href="/appointments/new" 
-                    className="bg-purple-100 p-3 rounded-lg text-center text-purple-800 font-medium text-sm hover:bg-purple-200 transition-colors"
+                    className="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg text-center text-purple-800 dark:text-purple-300 font-medium text-sm hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors"
                   >
                     New Appointment
                   </Link>
@@ -121,13 +121,13 @@ export default function Home() {
                 <>
                   <Link 
                     href="/appointments" 
-                    className="bg-purple-100 p-3 rounded-lg text-center text-purple-800 font-medium text-sm hover:bg-purple-200 transition-colors"
+                    className="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg text-center text-purple-800 dark:text-purple-300 font-medium text-sm hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors"
                   >
                     View Appointments
                   </Link>
                   <Link 
                     href="/health" 
-                    className="bg-purple-100 p-3 rounded-lg text-center text-purple-800 font-medium text-sm hover:bg-purple-200 transition-colors"
+                    className="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg text-center text-purple-800 dark:text-purple-300 font-medium text-sm hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors"
                   >
                     Health Records
                   </Link>
@@ -136,15 +136,15 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow">
-            <div className="p-4 border-b">
-              <h2 className="text-lg font-medium">This Week</h2>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow">
+            <div className="p-4 border-b dark:border-gray-700">
+              <h2 className="text-lg font-medium dark:text-white">This Week</h2>
             </div>
             <div className="p-4">
-              <p className="text-gray-600">You have <span className="font-bold text-purple-800">{stats.appointmentsWeek}</span> appointments this week.</p>
+              <p className="text-gray-600 dark:text-gray-300">You have <span className="font-bold text-purple-800 dark:text-purple-400">{stats.appointmentsWeek}</span> appointments this week.</p>
               <Link 
                 href="/appointments" 
-                className="mt-3 inline-block text-sm text-purple-600 hover:underline"
+                className="mt-3 inline-block text-sm text-purple-600 dark:text-purple-400 hover:underline"
               >
                 View Schedule →
               </Link>

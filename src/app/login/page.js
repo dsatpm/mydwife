@@ -46,23 +46,23 @@ export default function LoginPage() {
   };
   
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-purple-800">Midwifery App</h1>
-          <p className="text-gray-600 mt-2">Sign in to your account</p>
+          <h1 className="text-3xl font-bold text-purple-800 dark:text-purple-400">Midwifery App</h1>
+          <p className="text-gray-600 dark:text-gray-300 mt-2">Sign in to your account</p>
         </div>
         
-        <div className="bg-white shadow-md rounded-lg p-6">
+        <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
           {(error || authError) && (
-            <div className="bg-red-50 text-red-700 p-3 rounded-md mb-4 text-sm">
+            <div className="bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 p-3 rounded-md mb-4 text-sm">
               {error || authError}
             </div>
           )}
           
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Email
               </label>
               <input
@@ -70,14 +70,14 @@ export default function LoginPage() {
                 name="email"
                 type="email"
                 required
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white dark:bg-gray-700"
                 value={formData.email}
                 onChange={handleChange}
               />
             </div>
             
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Password
               </label>
               <input
@@ -85,12 +85,12 @@ export default function LoginPage() {
                 name="password"
                 type="password"
                 required
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white dark:bg-gray-700"
                 value={formData.password}
                 onChange={handleChange}
               />
               <div className="mt-1 text-right">
-                <Link href="/forgot-password" className="text-sm text-purple-700 hover:underline">
+                <Link href="/forgot-password" className="text-sm text-purple-700 dark:text-purple-400 hover:underline">
                   Forgot password?
                 </Link>
               </div>
@@ -98,7 +98,7 @@ export default function LoginPage() {
             
             <button
               type="submit"
-              className="w-full bg-purple-700 text-white p-3 rounded-md font-medium hover:bg-purple-800 transition-colors"
+              className="w-full bg-purple-700 dark:bg-purple-600 text-white p-3 rounded-md font-medium hover:bg-purple-800 dark:hover:bg-purple-700 transition-colors"
               disabled={loading}
             >
               {loading ? 'Signing in...' : 'Sign in'}
@@ -106,9 +106,9 @@ export default function LoginPage() {
           </form>
           
           <div className="mt-6 text-center">
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               Don't have an account?{' '}
-              <Link href="/register" className="text-purple-700 hover:underline">
+              <Link href="/register" className="text-purple-700 dark:text-purple-400 hover:underline">
                 Register
               </Link>
             </p>

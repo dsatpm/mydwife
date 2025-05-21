@@ -70,8 +70,8 @@ export default function AppointmentsPage() {
       <Layout>
         <div className="flex items-center justify-center h-screen">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-700 mx-auto"></div>
-            <p className="mt-4 text-gray-600">Loading appointments...</p>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-700 dark:border-purple-400 mx-auto"></div>
+            <p className="mt-4 text-gray-600 dark:text-gray-400">Loading appointments...</p>
           </div>
         </div>
       </Layout>
@@ -83,11 +83,11 @@ export default function AppointmentsPage() {
       <Layout>
         <div className="p-4 max-w-lg mx-auto">
           <header className="mb-6 flex justify-between items-center">
-            <h1 className="text-2xl font-bold text-purple-800">Appointments</h1>
+            <h1 className="text-2xl font-bold text-purple-800 dark:text-purple-400">Appointments</h1>
             {isMidwifeUser && (
               <Link 
                 href="/appointments/new" 
-                className="bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-purple-800 transition-colors"
+                className="bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-purple-800 transition-colors dark:bg-purple-600 dark:hover:bg-purple-700"
               >
                 New Appointment
               </Link>
@@ -95,13 +95,13 @@ export default function AppointmentsPage() {
           </header>
 
           <div className="mb-6">
-            <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="date" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Select Date
             </label>
             <input
               type="date"
               id="date"
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white dark:bg-gray-700"
               value={selectedDate}
               onChange={(e) => setSelectedDate(e.target.value)}
             />
@@ -109,24 +109,24 @@ export default function AppointmentsPage() {
 
           {isLoadingData ? (
             <div className="text-center py-8">
-              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-700 mx-auto"></div>
-              <p className="mt-2 text-gray-600">Loading appointments...</p>
+              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-700 dark:border-purple-400 mx-auto"></div>
+              <p className="mt-2 text-gray-600 dark:text-gray-400">Loading appointments...</p>
             </div>
           ) : filteredAppointments.length === 0 ? (
-            <div className="bg-white rounded-lg shadow p-8 text-center">
-              <p className="text-gray-600 mb-4">No appointments scheduled for this date.</p>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-8 text-center">
+              <p className="text-gray-600 dark:text-gray-400 mb-4">No appointments scheduled for this date.</p>
               {isMidwifeUser && (
                 <Link 
                   href="/appointments/new" 
-                  className="text-purple-700 hover:underline"
+                  className="text-purple-700 dark:text-purple-400 hover:underline"
                 >
                   Schedule an appointment
                 </Link>
               )}
             </div>
           ) : (
-            <div className="bg-white rounded-lg shadow">
-              <ul className="divide-y divide-gray-200">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow">
+              <ul className="divide-y divide-gray-200 dark:divide-gray-700">
                 {filteredAppointments.map(appointment => {
                   const patient = patients[appointment.patientId];
                   const appointmentTime = new Date(appointment.date).toLocaleTimeString([], { 
@@ -136,18 +136,18 @@ export default function AppointmentsPage() {
                   
                   return (
                     <li key={appointment.id}>
-                      <Link href={`/appointments/${appointment.id}`} className="block hover:bg-gray-50">
+                      <Link href={`/appointments/${appointment.id}`} className="block hover:bg-gray-50 dark:hover:bg-gray-700">
                         <div className="px-4 py-4">
                           <div className="flex justify-between">
                             <div>
-                              <p className="font-medium text-gray-900">
+                              <p className="font-medium text-gray-900 dark:text-white">
                                 {appointmentTime}
                               </p>
-                              <p className="text-sm text-gray-500">
+                              <p className="text-sm text-gray-500 dark:text-gray-400">
                                 {patient ? patient.name : 'Unknown Patient'}
                               </p>
                             </div>
-                            <div className="text-sm text-gray-500">
+                            <div className="text-sm text-gray-500 dark:text-gray-400">
                               {appointment.type || 'General Visit'}
                             </div>
                           </div>
